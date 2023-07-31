@@ -1,42 +1,53 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
-			demo: [
-				{
-					title: "FIRST",
-					background: "white",
-					initial: "white"
-				},
-				{
-					title: "SECOND",
-					background: "white",
-					initial: "white"
-				}
-			]
+			favorites: []
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
-			exampleFunction: () => {
-				getActions().changeColor(0, "green");
+			addFavorites: (name) => {
+				setStore({favorites: [...getStore().favorites.name]})
 			},
-			loadSomeData: () => {
-				/**
-					fetch().then().then(data => setStore({ "foo": data.bar }))
-				*/
+
+			removeFavorite: (id) => {
+				setStore({favorites:getStore().favorites.filter((item, i) => {
+					return i != id;
+				})})
 			},
-			changeColor: (index, color) => {
-				//get the store
-				const store = getStore();
-
-				//we have to loop the entire demo array to look for the respective index
-				//and change its color
-				const demo = store.demo.map((elm, i) => {
-					if (i === index) elm.background = color;
-					return elm;
-				});
-
-				//reset the global store
-				setStore({ demo: demo });
+			
+			getPeople: async () => {
+				if(localStorage.getItem('peopleLocal') === null) {
+					// setPerson(JSON.parse(localStorage.getItem('peopleLocal')))
+				} else {
+					const response = await fetch('https://www.swapi.tech/api/people/');
+					if(response.ok) {
+						const data = await response.json();
+						// setPerson(data);
+						localStorage.setItem('peopleLocal', JSON.stringify(data.results));
+						// Aqui podria iterar el array data y hacer los fetch de todas las caracteristicas de los people, y guardarlos en el localStorage, array data.results
+						// detalles = []
+						// data.results.map((item, id) => {
+							//const url = item.url
+							// hacer fetch de cada url (el map ira haciendo 1 a 1 hasta completar los 10)
+							// agregar el objeto al array detalles con ... (tal vez necesite json.stringify)
+						//})
+						// grabar detalles en el localStorage
+					} else {
+						console.log('error:', response.status, response.statusText)
+					}
+				}
+			},
+			getPlanets: async () => {
+				if(localStorage.getItem('planetsLocal') === null) {
+				} else {
+					const response = await fetch('https://www.swapi.tech/api/planets/');
+					if(response.ok) {
+						const data = await response.json();
+						localStorage.setItem('planetsLocal', JSON.stringify(data.results));
+					} else {
+						console.log('error:', response.status, response.statusText)
+					}
+				}
 			}
 		}
 	};
