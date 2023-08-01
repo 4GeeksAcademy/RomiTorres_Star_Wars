@@ -15,6 +15,8 @@ import { Planets } from "./views/Planets.jsx";
 import { DetailsPlanets } from "./views/DetailsPlanets.jsx";
 import { Naves } from "./views/Naves.jsx"
 import {DetailsNaves} from "./views/DetailsNaves.jsx"
+import { Species } from "./views/Species.jsx";
+import { DetailsSpecies } from "./views/DetailsSpecies.jsx";
 
 //create your first component
 const Layout = () => {
@@ -23,7 +25,7 @@ const Layout = () => {
 	const basename = process.env.BASENAME || "";
 
 	return (
-		<div>
+		<div className="bg-dark">
 			<BrowserRouter basename={basename}>
 				<ScrollToTop>
 					<Navbar />
@@ -37,6 +39,8 @@ const Layout = () => {
 						<Route path="/planets/:id" element={<DetailsPlanets/>} />
 						<Route path="/starships" element={<Naves/>} />
 						<Route path="/starships/:id" element={<DetailsNaves/>} />
+						<Route path="/species" element={<Species/>} />
+						<Route path="/species/:id" element={<DetailsSpecies/>} />
 						<Route path="*" element={<h1>Not found!</h1>} />
 					</Routes>
 					<Footer />

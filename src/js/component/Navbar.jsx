@@ -28,6 +28,11 @@ export const Navbar = () => {
 								<span className="navbar-brand mb-0 h1">Naves</span>
 							</Link>
 						</li>
+						<li className="nav-item">
+						<Link className="nav-link link-secondary" to="/species">
+								<span className="navbar-brand mb-0 h1">Especies</span>
+							</Link>
+						</li>
 						<BtnFavorite/>
 						{/* <li className="nav-item">
 							<a className="nav-link link-secondary" href="/starships">Starships</a>
