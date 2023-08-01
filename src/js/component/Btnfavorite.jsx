@@ -24,7 +24,7 @@ export const BtnFavorite = () => {
                         <li key={id} className="d-flex align-items-center">
                             <span className="dropdown-item">{item}</span>
                             <button type="button" className="btn btn-outline-danger me-2"
-                                onClick={() =>{ actions.removeFavorite(id)}}>
+                                onClick={(e) =>{e.stopPropagation(); actions.removeFavorite(id)}}>
                                 <i className="fa fa-trash"></i>
                             </button>
                         </li>

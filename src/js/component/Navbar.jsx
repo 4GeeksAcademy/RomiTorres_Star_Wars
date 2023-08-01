@@ -5,7 +5,7 @@ import {BtnFavorite} from "./Btnfavorite.jsx";
 
 export const Navbar = () => {
 	return (
-		<nav className="navbar navbar-dark bg-dark mb-3">
+		<nav className="navbar navbar-dark bg-dark mb-3 ">
 			<div className="container-fluid d-flex justify-content-between mx-md-4 mt-4 mb-1">
 				<div><a className="navbar-brand" href="/">
 					<img height="55" src={logoStar} />
@@ -21,6 +21,11 @@ export const Navbar = () => {
 						<li className="nav-item">
 						<Link className="nav-link link-secondary" to="/planets">
 								<span className="navbar-brand mb-0 h1">Planetas</span>
+							</Link>
+						</li>
+						<li className="nav-item">
+						<Link className="nav-link link-secondary" to="/starships">
+								<span className="navbar-brand mb-0 h1">Naves</span>
 							</Link>
 						</li>
 						<BtnFavorite/>
