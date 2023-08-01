@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import { Spinner } from "../component/Spinner.jsx";
 import { Context } from "../store/appContext.js";
-import imgDefault from "../../img/star-wars-logo.png";
+import imgDefault from "../../img/cielo.jpg";
 
 export const Naves = () => {
     const [naves, setNaves] = useState(JSON.parse(localStorage.getItem('navesLocal')));
@@ -12,13 +12,13 @@ export const Naves = () => {
 
 
     return (
-        <div className="container bg-dark mb-3">
+        <div className="bg-dark mb-3 ">
             <h1 className="text-light text-center pt-4">NAVES
             </h1>
                     {
                         !naves ?
                             <Spinner /> :
-                            <div className="d-flex flex-wrap justify-content-between"> {
+                            <div className=" d-flex flex-wrap justify-content-between"> {
                                 naves.map((item, id) =>
                                     <div className="card m-3 rounded" style={{width: "23rem"}} key={id}>
                                         {/* <h2>{item.uid}</h2> */}

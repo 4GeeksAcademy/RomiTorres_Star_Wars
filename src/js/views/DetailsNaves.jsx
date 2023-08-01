@@ -40,25 +40,27 @@ export const DetailsNaves = () => {
 
 
     return (
-        <div>
-            <div>
-            <img  alt="" src={"https://starwars-visualguide.com/assets/img/starships/" + (starships[id - 1].uid ) + ".jpg"} onError={handleOnErrorImg}/>
-            </div>
-            <div>
-                {!detallesNaves.result ? (<Spinner />
-                ) : (
-
-                    <div>
-                        
-                        <p><b>Cost: </b>{detallesNaves.result.properties.cost_in_credits}</p>
-                        <p><b>Length: </b>{detallesNaves.result.properties.length}</p>
-                        <p><b>Passengers: </b>{detallesNaves.result.properties.passengers}</p>
-                        <p><b>Cargo capacity: </b>{detallesNaves.result.properties.cargo_capacity}</p>
-
+        <>
+        {
+           !detallesNaves.result ? (<Spinner/>) :
+            (
+                <div className="bg-dark d-flex justify-content-center">
+                       <div className="card m-4 border-dark " style={{ width: "18rem" }}>
+                       <img  alt="" src={"https://starwars-visualguide.com/assets/img/starships/" + (starships[id - 1].uid ) + ".jpg"} onError={handleOnErrorImg}/>
+                    <h1>{detallesNaves.name}</h1>
+                    <div className="card-body ">
+                        {/* <h3>{viewDetails.name}</h3> */}
+                        <p className="card-text"><strong>Costo:</strong> {detallesNaves.result.properties.cost_in_credits}</p>
+                        <p className="card-text"><strong>Largo:</strong> {detallesNaves.result.properties.length}</p>
+                        <p className="card-text"><strong>Pasajeros:</strong> {detallesNaves.result.properties.passengers}</p>
+                        <p className="card-text"><strong>Capacidad de carga:</strong> {detallesNaves.result.properties.cargo_capacity}</p>
                     </div>
-                )
-                }
-            </div>
-        </div>
+                </div>
+                </div>
+             
+            )
+        
+    }
+    </>
     )
 }

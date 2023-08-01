@@ -2,7 +2,7 @@ import React, {useState, useContext} from "react";
 import {Link} from "react-router-dom";
 import { Spinner } from "../component/Spinner.jsx";
 import { Context } from "../store/appContext.js";
-import imgDefault from "../../img/placeholder.jpg" 
+import imgDefault from "../../img/robots.jpg" 
 
 export const Planets = () => {
     const [planets, setplanets] = useState(JSON.parse(localStorage.getItem('planetsLocal')));

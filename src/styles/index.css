@@ -1,3 +1,13 @@
 /* 
     General Styles
 */
+
+.footer {
+    height: 100px; /* Establece aquí la altura fija que deseas para el footer */
+    background-color: #f1f1f1; /* Cambia el color de fondo según tus preferencias */
+    /* Agrega otros estilos que desees para el footer, como posición, margen, etc. */
+  }
+
+  #app {
+    background-color: black;
+  }
