@@ -16,7 +16,7 @@ export const DetailsNaves = () => {
     const handleOnErrorImg = (e) => { e.target.src = imgDefault }
 
     const fetchNaves = async () => {
-        const url = host + id;
+        const url = host + (starships[id - 1].uid );
         const request = {
             method: "GET",
         };
@@ -41,15 +41,15 @@ export const DetailsNaves = () => {
 
     return (
         <div>
-           
+            <div>
+            <img  alt="" src={"https://starwars-visualguide.com/assets/img/starships/" + (starships[id - 1].uid ) + ".jpg"} onError={handleOnErrorImg}/>
+            </div>
             <div>
                 {!detallesNaves.result ? (<Spinner />
                 ) : (
 
                     <div>
-                         <div>
-            <img  alt="" src={"https://starwars-visualguide.com/assets/img/starships/" + (starships.results[id].uid ) + ".jpg"} onError={handleOnErrorImg}/>
-            </div>
+                        
                         <p><b>Cost: </b>{detallesNaves.result.properties.cost_in_credits}</p>
                         <p><b>Length: </b>{detallesNaves.result.properties.length}</p>
                         <p><b>Passengers: </b>{detallesNaves.result.properties.passengers}</p>
