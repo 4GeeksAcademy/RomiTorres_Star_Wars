@@ -52,6 +52,18 @@ const getState = ({ getStore, getActions, setStore }) => {
 						console.log('error:', response.status, response.statusText)
 					}
 				}
+			},
+			getSpecies: async () => {
+				if (localStorage.getItem('speciesLocal') !== null) {
+				} else {
+					const response = await fetch('https://www.swapi.tech/api/species/');
+					if (response.ok) {
+						const data = await response.json();
+						localStorage.setItem('speciesLocal', JSON.stringify(data.results));
+					} else {
+						console.log('error:', response.status, response.statusText)
+					}
+				}
 			}
 		},
 		
