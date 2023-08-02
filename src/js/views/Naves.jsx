@@ -18,7 +18,7 @@ export const Naves = () => {
                     {
                         !naves ?
                             <Spinner /> :
-                            <div className=" d-flex flex-wrap justify-content-between"> {
+                            <div className=" d-flex flex-wrap justify-content"> {
                                 naves.map((item, id) =>
                                     <div className="card m-3 rounded" style={{width: "23rem"}} key={id}>
                                         {/* <h2>{item.uid}</h2> */}
